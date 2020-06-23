@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MY APP</title>
+</head>
+
+<body>
+    <h1> Movie Quotes </h1>
+
+    <div>
+        <h2>Add a quote</h2>
+        <form action="/quotes" method="POST">
+            <input type="text" placeholder="name" name="name">
+            <input type="text" placeholder="quote" name="quote">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div>
+        <h2>Quotes</h2>
+        <ul class="quotes">
+            <% for(var i = 0; i < quotes.length; i++) {%>
+                <li class="quote">
+                    <span><%= quotes[i].name %></span>:
+                    <span><%= quotes[i].quote %></span>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Replace a quote</h2>
+        <p>Enter a new quote to replace and the name of the quote you wish to replace.</p>
+        <form action="/quotes" method="PUT">
+            <input type="text" placeholder="replaced" name="replaced">
+            <input type="text" placeholder="name" name="name">
+            <input type="text" placeholder="quote" name="quote">
+            <button id="update-button" type="submit">Replace</button>
+        </form>
+    </div>
+
+    <div>
+        <h2>Remove a quote</h2>
+        <button id="delete-button">Delete quote</button>
+        <div id="message"></div>
+    </div>
+
+    <script src="/main.js"></script>
+</body>
+
+</html>
